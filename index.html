@@ -1,1 +1,151 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для тебя ❤️</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #160b16, #3a1735, #170b20);
+        color: white;
+        overflow: hidden;
+    }
+    .glow {
+        position: fixed;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background: rgba(255, 80, 170, 0.12);
+        filter: blur(80px);
+        animation: move 8s infinite alternate ease-in-out;
+    }
+    .glow.one {
+        top: -100px;
+        left: -100px;
+    }
+    .glow.two {
+        bottom: -120px;
+        right: -100px;
+        animation-delay: 2s;
+    }
+    @keyframes move {
+        from { transform: translate(0, 0); }
+        to { transform: translate(80px, 50px); }
+    }
+    .card {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 600px;
+        padding: 42px 28px;
+        border-radius: 28px;
+        text-align: center;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.14);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 20px 70px rgba(0,0,0,0.45);
+        animation: appear 1.2s ease;
+    }
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(25px) scale(0.96);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    .heart {
+        font-size: 58px;
+        animation: heartbeat 1.5s infinite;
+        margin-bottom: 15px;
+    }
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        15% { transform: scale(1.12); }
+        30% { transform: scale(1); }
+    }
+    h1 {
+        margin: 0 0 20px;
+        font-size: 31px;
+        font-weight: 600;
+    }
+    p {
+        font-size: 17px;
+        line-height: 1.75;
+        color: rgba(255,255,255,0.88);
+        margin: 0 0 28px;
+    }
+    button {
+        border: none;
+        padding: 15px 28px;
+        border-radius: 999px;
+        background: white;
+        color: #42183c;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.25s;
+        box-shadow: 0 8px 30px rgba(255,255,255,0.15);
+    }
+    button:hover {
+        transform: scale(1.05);
+    }
+    #message {
+        display: none;
+        margin-top: 25px;
+        animation: appear 0.7s ease;
+    }
+    .small {
+        margin-top: 25px;
+        font-size: 13px;
+        color: rgba(255,255,255,0.45);
+    }
+</style>
+</head>
+<body>
+<div class="glow one"></div>
+<div class="glow two"></div>
+<div class="card">
+    <div class="heart">❤️</div>
+    <h1>Для тебя</h1>
+    <p>
+        Я долго думал, что сказать тебе, и понял одну простую вещь:
+        иногда словами невозможно объяснить всё, что происходит внутри.
+    </p>
+    <button onclick="showMessage()">Открой меня</button>
+    <div id="message">
+        <p>
+            За эти годы было многое. Были моменты, которыми я горжусь,
+            и моменты, которые хотел бы изменить.
+            <br><br>
+            Но одно я знаю точно — ты для меня очень важный человек.
+            И я хочу не просто говорить об изменениях, а действительно
+            показывать их своими поступками.
+            <br><br>
+            Спасибо тебе за всё. ❤️
+        </p>
+    </div>
+    <div class="small">
+        16.07.2021 — навсегда особенная дата
+    </div>
+</div>
+<script>
+function showMessage() {
+    document.querySelector("button").style.display = "none";
+    document.getElementById("message").style.display = "block";
+}
+</script>
+</body>
+</html>
